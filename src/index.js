@@ -112,10 +112,12 @@ export default {
         if (!appId) {
             warn("Call to MoEngage.init() is missing appId")
         } else {
+            const { debug, cluster, ...rest } = options
             MoEngageObj = moe({
                 app_id: appId,
                 debug_logs: options.debug ? 1 : 0,
                 cluster: options.cluster ? options.cluster : undefined,
+                ...rest,
             })
             initialised = true
             debug = options.debug
