@@ -3,7 +3,7 @@ let MoEngageObj
 let initialised = false
 let debug = false
 
-const moduleName = "moengage"
+const moduleName = "react-moengage"
 
 // --------------------------------------------------------
 // Helpers
@@ -37,8 +37,7 @@ const verifyInit = () => {
 }
 
 const defaultOptions = {
-    debug: false,
-    cluster: undefined,
+    debugLogs: 1,
 }
 
 // --------------------------------------------------------
@@ -112,15 +111,14 @@ export default {
         if (!appId) {
             warn("Call to MoEngage.init() is missing appId")
         } else {
-            const { debug, cluster, ...rest } = options
             MoEngageObj = moe({
                 app_id: appId,
-                debug_logs: options.debug ? 1 : 0,
+                debug_logs: options.debugLogs,
+                swPath: options.swPath ? options.swPath : undefined,
                 cluster: options.cluster ? options.cluster : undefined,
-                ...rest,
             })
             initialised = true
-            debug = options.debug
+            debug = options.debugLogs === 1
         }
     },
 

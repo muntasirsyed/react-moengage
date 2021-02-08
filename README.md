@@ -27,24 +27,52 @@ npm install --save react-moengage
 import MoEngage from "react-moengage"
 
 MoEngage.init("MOENGAGE_APP_ID", {
-    debug: true,
+    debugLogs: 0,
+    swPath: "/customSw.js",
 })
 
 MoEngage.trackEvent("PurchaseMade", { ...data })
 ```
 
-## Options
-
-| Option    | Description                                                                                                                                                                                                                                                          | Default |
-| --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
-| `debug`   | If `true`, a `1` is passed into the SDK's `debug_logs` option and logs all method calls to the console. Pass in `true` if you want data going to your **TEST** environment. It's recommended you set this to something like `process.env.NODE_ENV === 'production'`. | `false` |
-| `cluster` | Specify a cluster for data redirection.                                                                                                                                                                                                                              |         |
-| `swPath`  | Customise the service worker filename & path outputted by the SDK.                                                                                                                                                                                                   |         |
-
-Any options further to the above passed into `MoEngage.init("ID", {...})` will also be passed into `moe({ ... })`.
-
 ## Methods
 
-All methods are camel-cased versions of those specified in the `moe` object [MoEngage docs](https://docs.moengage.com/docs/web-sdk-integration).
+All methods are camel-cased versions of those specified in the [MoEngage SDK documentation](https://docs.moengage.com/docs/web-sdk-integration).
 
-The `moe` object is accessible directly if need-be easily at `MoEngage.moe`
+```javascript
+MoEngage.trackEvent("PurchaseMade", { value: 0.5 })
+
+MoEngage.addFirstName("Dominick")
+MoEngage.addLastName("Cobb")
+MoEngage.addEmail("dom@level5.com")
+MoEngage.addMobile("+12399999999")
+
+Moengage.addUserAttribute("replenishment_date", new Date(2021, 4, 30))
+```
+
+The `moe` object is also accessible directly if need-be:
+
+```javascript
+const moe = MoEngage.moe
+
+moe.onsite.registerCallback(...args)
+moe.onsite.getData(...args)
+```
+
+## Environment
+
+As in the [MoEngage SDK documentation](https://docs.moengage.com/docs/web-sdk-integration), set `debugLogs` to `0` in order to push data to your `LIVE` environment. Set it to `1` in order to push data to your `TEST` environment & enable logging to the console. **By default `debugLogs` is set to `1`.**
+
+## Server-Side Rendering
+
+Please note in order to initialise this library, the MoEngage SDK relies on the `window` object and therefore will only work in the browser. If server-side rendering, it is recommended to call init() in somewhere like `componentDidMount()` or `useEffect(..., [])`.
+
+```javascript
+import MoEngage from "react-moengage"
+
+class MyComponent extends React.Component {
+    componentDidMount() {
+        const options = { ... }
+        MoEngage.init("MOENGAGE_APP_ID", options)
+    }
+}
+```
