@@ -1,0 +1,51 @@
+{
+    "name": "react-moengage",
+    "version": "1.0.0",
+    "license": "MIT",
+    "description": "Wrapper for the MoEngage Web SDK",
+    "main": "./dist/react-moengage.js",
+    "types": "./types/index.d.ts",
+    "scripts": {
+        "start": "export NODE_ENV=development && webpack-dev-server --config webpack.config.dev.js",
+        "bundle": "export NODE_ENV=production && webpack -p --config webpack.config.dist.js",
+        "lint": "eslint --ignore-path .gitignore --fix"
+    },
+    "author": {
+        "name": "Muntasir Syed",
+        "email": "me@muntasirsyed.com"
+    },
+    "repository": "git://github.com/muntasirsyed/react-moengage.git",
+    "homepage": "https://github.com/muntasirsyed/react-moengage.git",
+    "keywords": [
+        "react",
+        "javascript",
+        "moengage",
+        "library",
+        "frontend",
+        "analytics"
+    ],
+    "dependencies": {},
+    "devDependencies": {
+        "@babel/core": "7.12.13",
+        "@babel/plugin-transform-react-constant-elements": "7.12.13",
+        "@babel/plugin-transform-react-inline-elements": "7.12.13",
+        "@babel/preset-env": "7.12.13",
+        "@babel/preset-react": "7.12.13",
+        "autoprefixer": "9.7.3",
+        "babel-eslint": "10.1.0",
+        "babel-loader": "8.2.2",
+        "eslint": "7.19.0",
+        "eslint-config-prettier": "7.2.0",
+        "eslint-plugin-react": "7.22.0",
+        "husky": "4.3.8",
+        "lint-staged": "10.5.4",
+        "prettier": "2.2.1",
+        "react": "16.14.0",
+        "react-dom": "16.14.0",
+        "typescript": "4.1.3",
+        "webpack": "4.41.2",
+        "webpack-cli": "3.3.10",
+        "webpack-dev-server": "3.11.2"
+    },
+    "peerDependencies": {}
+}
