@@ -60,11 +60,13 @@ moe.onsite.getData(...args)
 
 ## Environment
 
-As in the [MoEngage SDK documentation](https://docs.moengage.com/docs/web-sdk-integration), set `debugLogs` to `0` in order to push data to your `LIVE` environment. Set it to `1` in order to push data to your `TEST` environment & enable logging to the console. **By default `debugLogs` is set to `1`.**
+**By default `debugLogs` is set to `1` (test mode).**
+
+As in the [MoEngage SDK documentation](https://docs.moengage.com/docs/web-sdk-integration), set `debugLogs` to `0` in order to push data to your `LIVE` environment. Set it to `1` in order to push data to your `TEST` environment & enable logging to the console.
 
 ## Server-Side Rendering
 
-Please note in order to initialise this library, the MoEngage SDK relies on the `window` object and therefore will only work in the browser. If server-side rendering, it is recommended to call init() in somewhere like `componentDidMount()` or `useEffect(..., [])`.
+Please note in order to initialise this library, the MoEngage SDK relies on the `window` object and therefore will only work in the browser. If server-side rendering, it is recommended to call `init()` in somewhere like `componentDidMount()` or `useEffect(..., [])`.
 
 ```javascript
 import MoEngage from "react-moengage"
