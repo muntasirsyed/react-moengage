@@ -24,7 +24,6 @@
         "frontend",
         "analytics"
     ],
-    "dependencies": {},
     "devDependencies": {
         "@babel/core": "7.12.13",
         "@babel/plugin-transform-react-constant-elements": "7.12.13",
