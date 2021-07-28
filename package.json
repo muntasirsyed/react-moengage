@@ -1,6 +1,6 @@
 {
     "name": "react-moengage",
-    "version": "1.0.3",
+    "version": "1.0.4",
     "license": "MIT",
     "description": "Wrapper for the MoEngage Web SDK",
     "main": "./dist/react-moengage.js",
