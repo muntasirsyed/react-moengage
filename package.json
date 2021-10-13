@@ -8,7 +8,7 @@
     "scripts": {
         "start": "export NODE_ENV=development && webpack-dev-server --config webpack.config.dev.js",
         "bundle": "export NODE_ENV=production && webpack -p --config webpack.config.dist.js",
-        "lint": "eslint --ignore-path .gitignore --fix"
+        "lint": "eslint --fix"
     },
     "author": {
         "name": "Muntasir Syed",
