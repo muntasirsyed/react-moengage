@@ -48,6 +48,11 @@ export default {
     init: (appId, options = defaultOptions) => {
         initialised = typeof window !== "undefined" && !!window.moe
 
+        if (initialised) {
+            warn("MoEngage already initialised")
+            return
+        }
+
         /* eslint-disable */
         !(function (i, s, o, g, r, a, m, n) {
             i.moengage_object = r
@@ -117,8 +122,8 @@ export default {
                 swPath: options.swPath ? options.swPath : undefined,
                 cluster: options.cluster ? options.cluster : undefined,
             })
-            initialised = true
             debug = options.debugLogs === 1
+            initialised = true
         }
     },
 
